@@ -19,11 +19,11 @@ var app = require('http').createServer(handler)
 app.listen(80);
 
 function handler (req, res) {
-    fs.readFile(__dirname + '/index.html',
+    fs.readFile(__dirname + '/in.html',
     function (err, data) {
         if (err) {
             res.writeHead(500);
-            return res.end('Error loading index.html');
+            return res.end('Error loading in.html');
         }
 
         res.writeHead(200);
