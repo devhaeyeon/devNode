@@ -11,7 +11,43 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 });
 */
+//http://support.mongohq.com/languages/nodejs.html
 
+var mongodb = require('mongodb')
+  , MongoClient = mongodb.MongoClient
+ 
+MongoClient.connect(process.env.MONGOHQ_URL, function(err, db) {
+  // operate on the collection named "test"
+  var collection = db.collection('test')
+ 
+  // remove all records in collection (if any)
+  console.log('removing documents...')
+  collection.remove(function(err, result) {
+    if (err) {
+      return console.error(err)
+    }
+    console.log('collection cleared!')
+    // insert two documents
+    console.log('inserting new documents...')
+    collection.insert([{name: 'tester'}, {name: 'coder'}], function(err,
+docs) {
+      if (err) {
+        return console.error(err)
+      }
+      console.log('just inserted ', docs.length, ' new documents!')
+      collection.find({}).toArray(function(err, docs) {
+        if (err) {
+          return console.error(err)
+        }
+        docs.forEach(function(doc) {
+          console.log('found document: ', doc)
+        })
+      })
+    })
+  })
+})
+
+/*socket.io
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs')
@@ -44,4 +80,4 @@ io.sockets.on('connection', function (socket) {
     socket.on('my other event', function (data) {
         console.log(data);
     }); 
-});
+});*/
