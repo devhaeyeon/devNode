@@ -100,10 +100,9 @@ http.createServer(function (request,response){
 });
 */
 
-var ejs = require('ejs')
-  , fs = require('fs')
-  , path = 'function.ejs'
-  , str = fs.readFileSync(path, 'utf8');
+var http			=require('http');
+var ejs = require('ejs');
+var fs = require('fs');
 
 var users = [];
 
@@ -111,12 +110,18 @@ users.push({ name: 'Tobi', age: 2, species: 'ferret' })
 users.push({ name: 'Loki', age: 2, species: 'ferret' })
 users.push({ name: 'Jane', age: 6, species: 'ferret' })
 
-var ret = ejs.render(str, {
-  users: users,
-  filename: path
-});
+http.createServer(function (request,response){
 
-console.log(ret);
+		fs.readFile('function.ejs','utf-8',function(error,data){
+		response.writeHead(200, {'Content-Type':'text/html'});
+		response.end( ejs.render(data, {
+			  users: users,
+			  filename: path
+		}));
+		});
+}).listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 
 
