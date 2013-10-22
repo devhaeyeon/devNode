@@ -60,7 +60,7 @@ docs) {
 })
 */
  
-
+/* 페이지 구분 및 post, get, 구분, form 입력 으로 값 받아오기
 var http		=		require('http');
 var fs			=		require('fs');
 var url			=		require('url');
@@ -98,6 +98,26 @@ http.createServer(function (request,response){
 }).listen(port, function() {
   console.log("Listening on " + port);
 });
+*/
+
+var ejs = require('ejs')
+  , fs = require('fs')
+  , path = __dirname + '/functions.ejs'
+  , str = fs.readFileSync(path, 'utf8');
+
+var users = [];
+
+users.push({ name: 'Tobi', age: 2, species: 'ferret' })
+users.push({ name: 'Loki', age: 2, species: 'ferret' })
+users.push({ name: 'Jane', age: 6, species: 'ferret' })
+
+var ret = ejs.render(str, {
+  users: users,
+  filename: path
+});
+
+console.log(ret);
+
 
 
 
