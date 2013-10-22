@@ -102,7 +102,7 @@ http.createServer(function (request,response){
 
 var ejs = require('ejs')
   , fs = require('fs')
-  , path = __dirname + 'function.ejs'
+  , path = 'function.ejs'
   , str = fs.readFileSync(path, 'utf8');
 
 var users = [];
