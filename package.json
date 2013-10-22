@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+   "connect": "2.3.6",
     "express": "~3.3.4",
     "socket.io" : "~0.9.6",
     "mongodb":"*",
-    "mongoose":"*"
+    "mongoose":"*",
+     "ejs": "~0.7.1",
+     "jade": "*"
+
   },
   "engines": {
     "node": "0.10.13",
