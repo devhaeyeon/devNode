@@ -11,8 +11,20 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 });
 */
-//http://support.mongohq.com/languages/nodejs.html
+//mongolab admin page
+//https://www.mongolab.com/databases/heroku_app18606745#collections
 
+//mongohq admin page(gui tool)
+//https://partners.mongohq.com/app18606745-heroku-com/mongo/app18606745/collections/test
+
+//mongohq => mongo db sample source
+//http://support.mongohq.com/languages/nodejs.html
+//http://uixkr.github.io/archives/717/
+
+//예제
+//http://devdoc.tistory.com/5
+
+/****mongoDB
 var mongodb = require('mongodb')
   , MongoClient = mongodb.MongoClient
  
@@ -46,6 +58,34 @@ docs) {
     })
   })
 })
+*/
+
+
+var http		=		require('http');
+var fs			=		require('fs');
+var url			=		require('url');
+var port = process.env.PORT || 5000;
+
+http.createServer(function (request,response){
+
+	var pathname=url.parse(request.url).pathname;
+	if(pathname=-'/')
+	{
+		fs.readFile('in.html',function(error,data){
+				response.writeHead(200, {'Content-Type':'text/html'});
+				response.end(data);
+		});
+	}
+	else if(pathname=='/OhterPage')
+	{
+		fs.readFile('in2.html',function(error,data){
+				response.writeHead(200, {'Content-Type':'text/html'});
+				response.end(data);
+		});
+	}
+}).listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 /*socket.io
 var app = require('http').createServer(handler)
