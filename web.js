@@ -69,7 +69,7 @@ var port = process.env.PORT || 5000;
 http.createServer(function (request,response){
 
 	var pathname=url.parse(request.url).pathname;
-	if(pathname=-'/')
+	if(pathname=='/')
 	{
 		fs.readFile('in.html',function(error,data){
 				response.writeHead(200, {'Content-Type':'text/html'});
