@@ -20,6 +20,9 @@ server.use(connect.errorHandler({
 
 }));
 
+server.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 /*connect.createServer(connect.query(),function (request,response){
 
