@@ -10,12 +10,12 @@ html
 				var alpha=10;
 				});
 	body
-		h1 hello hamal & Jade
-		h2 lotrm ipsum
+		h1 hello hamal & Jade #{name}
+		h2 lotrm ipsum =description
 		hr
 		.article
 			a(href="http://www.naver.com" data-test="m") naver
 			-for(var i=0;i<10;i++){
 				p
-					a(href="http://www.daum.net" data-test="m") daum
+					a(href="http://www.daum.net" data-test="m" target="_blank") daum
 			-}

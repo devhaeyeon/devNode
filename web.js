@@ -135,8 +135,11 @@ http.createServer(function (request,response){
 
 		fs.readFile('jadepage.jade','utf-8',function(error,data){
 		var fn=jade.compile(data);
-		response.writeHead(200, {'Content-Type':'text/html'});
-		response.end( fn());
+		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+		response.end( fn({
+				name : 'haeyeon',
+				description:'해연'
+		}));
 		});
 
 }).listen(port, function() {
