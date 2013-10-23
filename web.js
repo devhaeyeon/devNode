@@ -127,7 +127,7 @@ http.createServer(function (request,response){
 */
 
 var http			=		require('http');
-var ejs			=		require('jade');
+var jade			=		require('jade');
 var fs				=		require('fs');
 var port = process.env.PORT || 5000;
 
