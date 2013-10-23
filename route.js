@@ -1,14 +1,18 @@
 var connect = require('connect');
-var port = process.env.PORT || 5000;
-
-connect.createServer(connect.router(function (app) {
-
-	app.get('/Product/:id'	,function (request,response,next){
-		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-		response.end( '<h1>product page-'+request.params.id+'</h1>');
-		//response.end();
-	});
-
-})).listen(port, function() {
+var rServer = connect.createServer();
+ 
+rServer.use('/Home/Index',function(request,response,next){
+    response.writeHead(200,{'Content-Type':'text/html'});
+    response.write('<h1>Index Page</h1>');
+    response.end();
+});
+ 
+rServer.use('/Home/About',function(request,response,next){
+    response.writeHead(200,{'Content-Type':'text/html'});
+    response.write('<h1>Index Page</h1>');
+    response.end();
+});
+ 
+rServer.listen(port, function() {
   console.log("Listening on " + port);
 });
