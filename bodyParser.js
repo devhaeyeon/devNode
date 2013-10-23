@@ -18,7 +18,7 @@ server.use(connect.router(function (app) {
             response.end('<h1>Login Success</h1>');
         } else {
             // 로그인이 되어있지 않을 경우
-            fs.readFile('Login.html', function (error, data) {
+            fs.readFile('login.html', function (error, data) {
                 // 응답합니다.
                 response.writeHead(200, { 'Content-Type': 'text/html' });
                 response.end(data);
