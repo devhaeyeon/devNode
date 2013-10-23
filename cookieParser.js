@@ -1,26 +1,27 @@
-var connect=require('connect');
-
 var port = process.env.PORT || 5000;
-var server = connect.createServer();
+var connect = require('connect');
 
+// 서버를 생성합니다.
+connect.createServer(connect.cookieParser(), connect.router(function (app) {
+    // GET - /SetCookie
+    app.get('/SetCookie', function (request, response) {
+        // 응답합니다.
+        response.writeHead(200, {
+            'Content-Type': 'text/html',
+            'Set-Cookie': ['breakfast=toast', 'dinner=lunch']
+        });
+        response.end('<a href="/GetCookie">GO TO GET COOKIE</a>');
+    });
 
-connect.createServer(connect.cookieParser(),connect.router(function(app){
+    // GET - /GetCookie
+    app.get('/GetCookie', function (request, response) {
+        // 쿠키를 추출합니다.
+        var output = JSON.stringify(request.cookies);
 
-	app.get('/setcookie',	function (request,response)
-	{
-		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8',
-		'Set-Cookie':['breakfast = toast','dinner=lunch']	
-		});
-		response.end( '<a href="/getcookie">to get cookie</a>');
-	});
-
-	app.get('/getcookie',	function (request,response)
-	{
-		var output =JSON.stringify(request.cookies);
-		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-		response.end( '<h1>'+output+'</h1>');
-	});
-
+        // 응답합니다.
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.end('<h1>' + output + '</h1>');
+    });
 })).listen(port, function() {
   console.log("Listening on " + port);
 });
