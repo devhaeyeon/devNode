@@ -1,1 +1,1 @@
-web: node connect.js
+web: node static_middleware.js
