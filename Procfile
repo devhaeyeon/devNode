@@ -1,1 +1,1 @@
-web: node static_middleware.js
+web: node route.js
