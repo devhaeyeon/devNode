@@ -18,8 +18,7 @@ connect.createServer(connect.router(function (app) {
         
 // 응답합니다.
         response.writeHead(200, { 'Content-Type': 'text/html' });
-        response.write('<h1>About Page</h1>
-<p>');
+        response.write('<h1>About Page</h1><p>');
         response.end();
     });
 })).listen(port, function() {
