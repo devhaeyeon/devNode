@@ -1,8 +1,17 @@
 html
 	head
 		title index page
+		style
+			*{ margin:0px; padding:0px}
+			h1{color:red;}
+		script(src='http://code.jquery.com/jquery-1.7.js')
+		script
+			$(document).ready(function () {
+				var alpha=10;
+				});
 	body
 		h1 hello hamal & Jade
 		h2 lotrm ipsum
 		hr
-		a(href="http://www.naver.com" data-test="m") naver
+		.article
+			a(href="http://www.naver.com" data-test="m") naver
