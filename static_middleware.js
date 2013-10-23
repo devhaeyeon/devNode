@@ -1,12 +1,12 @@
 var connect = require('connect');
 var port = process.env.PORT || 5000;
 var server = connect.createServer();
-server.use(connect.router(function (app){
 
-}));
+connect.createServer(connect.static(__dirname+'/res/'),function (request,response){
 
-server.use(connect.static(__dirname+'/res'));
+		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+		response.end( '<img src="/Penguins.jpg" width="100%"/>');
 
-server.listen(port, function() {
+}).listen(port, function() {
   console.log("Listening on " + port);
 });
