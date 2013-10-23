@@ -13,10 +13,7 @@ connect.createServer(connect.router(function (app) {
 	app.all('*'	,function (request,response,next){
 		throw new Error('page not found');
 	});
-}), connect.errorHandler({
-	stack:true,
-	message:true,
-	dump:true
+
 })).listen(port, function() {
   console.log("Listening on " + port);
 });
