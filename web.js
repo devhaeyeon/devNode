@@ -100,9 +100,9 @@ http.createServer(function (request,response){
 });
 */
 
-var http			=require('http');
-var ejs = require('ejs');
-var fs = require('fs');
+var http			=		require('http');
+var ejs			=		require('ejs');
+var fs				=		require('fs');
 
 var users = [];
 
@@ -115,8 +115,7 @@ http.createServer(function (request,response){
 		fs.readFile('function.ejs','utf-8',function(error,data){
 		response.writeHead(200, {'Content-Type':'text/html'});
 		response.end( ejs.render(data, {
-			  users: users,
-			  filename: path
+			  users: users
 		}));
 		});
 }).listen(port, function() {
