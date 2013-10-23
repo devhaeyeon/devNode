@@ -1,6 +1,5 @@
 var connect = require('connect');
 var port = process.env.PORT || 5000;
-var server = connect.createServer();
 
 connect.createServer(connect.router(function (app) {
 
