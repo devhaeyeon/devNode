@@ -146,9 +146,6 @@ http.createServer(function (request,response){
   console.log("Listening on " + port);
 });
 
-
-
-
 /*socket.io 모듈
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
