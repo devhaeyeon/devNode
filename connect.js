@@ -14,9 +14,9 @@ server.use(function (request,response){
 
 server.use(connect.errorHandler({
 
-	stack:true;,
-	message:true;,
-	dump:true;
+	stack:true,
+	message:true,
+	dump:true
 
 }));
 
