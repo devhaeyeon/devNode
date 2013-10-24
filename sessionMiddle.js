@@ -23,6 +23,6 @@ server.use(function (request, response) {
     response.end(output);
 });
 // 서버를 실행합니다.
-server.listen(port, function () {
-    console.log('server running at'+port);
+server.listen(port, function() {
+  console.log("Listening on " + port);
 });
