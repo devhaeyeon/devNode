@@ -20,7 +20,7 @@ server.use(function (request,response){
 
 server.listen(port,function(){
 
-	console.log('server running '+port+);
+	console.log('server running '+port);
 
 
 });
