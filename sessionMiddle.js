@@ -8,7 +8,7 @@ var server = connect.createServer();
 
 // 미들웨어를 사용합니다.
 server.use(connect.cookieParser());
-server.use(connect.session());
+server.use(connect.session({secret:'string'}));
 server.use(function (request, response) {
     // 변수를 선언합니다.
     var output = '';
