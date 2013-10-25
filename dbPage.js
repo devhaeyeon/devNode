@@ -6,8 +6,8 @@ var ejs = require('ejs');
 var port = process.env.PORT || 5000;
 
 // 데이터베이스와 연결합니다.
-var client = mysql.createClient({
-//	  host     : 'us-cdbr-east-04.cleardb.com', //변하지 않음.
+var client = mysql.createConnection({
+	  host     : 'us-cdbr-east-04.cleardb.com', //변하지 않음.
 	  user     : 'b30e9317bebc55',
 	  password : '56bd55a0',
 	  database : 'heroku_e4b18fa76539562'
