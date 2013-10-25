@@ -7,10 +7,10 @@ var port = process.env.PORT || 5000;
 
 // 데이터베이스와 연결합니다.
 var client = mysql.createConnection({
-	  host     : 'http://haeyeon1222.dothome.co.kr', //변하지 않음.
-	  user     : 'haeyeon1222',
-	  password : 'godus2822',
-	  database : 'haeyeon1222'
+	  host     : 'us-cdbr-east-04.cleardb.com', //변하지 않음.
+	  user     : 'b30e9317bebc55',
+	  password : '56bd55a0',
+	  database : 'heroku_e4b18fa76539562'
 });
 
 // 서버를 생성합니다.
