@@ -1,1 +1,1 @@
-web: node mysqlCRUD.js
+web: node dbPage.js
