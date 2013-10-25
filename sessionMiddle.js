@@ -21,6 +21,7 @@ server.use(function (request, response) {
     // 응답합니다.
     response.writeHead(200, { 'Content-Type': 'text/html' });
     response.end(output);
+
 });
 // 서버를 실행합니다.
 server.listen(port, function() {
