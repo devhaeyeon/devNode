@@ -49,7 +49,7 @@ var app = connect()
     }))
 
     .use(post('/insert', function (req, res){
-				     db.test.insert([{name: req.body.username}], function(err,
+				     db.test.insert([{name: 'test234'}], function(err,
 						docs) {
 							  if (err) {
 								return console.error(err)
