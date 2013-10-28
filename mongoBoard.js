@@ -49,9 +49,7 @@ var app = connect()
     }))
 
     .use(post('/insert', function (req, res){
-		  var body = req.body;
-
-				     db.test.insert([{name: body.name}], function(err,
+				     db.test.insert([{name: req.data.name}], function(err,
 						docs) {
 							  if (err) {
 								return console.error(err)
