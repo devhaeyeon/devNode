@@ -31,7 +31,7 @@ var app = connect()
         });
     }))
 
-    .post('/insert', function (req, res, next){
+    .post('/insert', function (req, res){
 		  var body = req.body;
 
 				     db.test.insert([{name: body.name}], function(err,
@@ -53,6 +53,6 @@ var app = connect()
 				// 응답합니다.
 				res.writeHead(302, { 'Location': '/' });
 				res.end();
-    }))
+    })
     .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
 
