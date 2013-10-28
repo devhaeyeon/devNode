@@ -14,7 +14,8 @@
     "mongodb":"*",
     "mongoose":"*",
      "ejs": "~0.7.1",
-     "jade": "*"
+     "jade": "*",
+     "mongojs":"*"
 
   },
   "engines": {
