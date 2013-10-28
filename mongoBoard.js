@@ -40,6 +40,7 @@ var app = connect()
             });
         });
     }))
+
     .use(get('/insert', function (req, res, next){
       fs.readFile('input.html', 'utf8', function (error, data) {
             // 응답합니다.
@@ -55,7 +56,7 @@ var app = connect()
 								return console.error(err)
 							  }
 							  console.log('just inserted ', docs.length, ' new documents!')
-							  collection.find({}).toArray(function(err, docs) {
+							  db.test.find({}).toArray(function(err, docs) {
 								if (err) {
 								  return console.error(err)
 								}
