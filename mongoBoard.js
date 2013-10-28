@@ -60,19 +60,11 @@ var app = connect()
 					 
 						if (body != '')
 						{
-							var hash = splitter.formValues(body);
-					 
-							 console.log("input1 = " + hash["username"]);
-					 
-							 res.writeHead(200);
-							 res.write('Hello ' + hash["username"]);
-							 res.end();
-							 return;
+							var hash = splitter.formValues(body);	
+							var username=hash["username"];
 						}
-						   res.writeHead(200);
-							res.end(postHTML);
 					});
-				     db.test.insert({name: 'test2345'}, function(err,
+				     db.test.insert({name: username}, function(err,
 						docs) {
 							  if (err) {
 								return console.error(err)
