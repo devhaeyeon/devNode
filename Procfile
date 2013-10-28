@@ -1,1 +1,1 @@
-web: node dbPage.js
+web: node mongoBoard.js
