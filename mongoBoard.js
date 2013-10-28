@@ -51,7 +51,24 @@ var app = connect()
     }))
 
     .use(post('/insert', function (req, res){
-					console.log("form value"+req);
+					var body = "";
+					  req.on('data', function (chunk) {
+						body += chunk;
+					  });
+					  req.on('end', function () {
+						console.log('POSTed: ' + body);
+					 
+						if (body != '')
+						{
+							var hash = splitter.formValues(body);
+					 
+							 console.log("input1 = " + hash["username"]);
+					 
+							 res.writeHead(200);
+							 res.write('Hello ' + hash["username"]);
+							 res.end();
+							 return;
+						}
 				     db.test.insert({name: 'test2345'}, function(err,
 						docs) {
 							  if (err) {
