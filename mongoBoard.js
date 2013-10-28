@@ -69,6 +69,9 @@ var app = connect()
 							 res.end();
 							 return;
 						}
+						   res.writeHead(200);
+							res.end(postHTML);
+					});
 				     db.test.insert({name: 'test2345'}, function(err,
 						docs) {
 							  if (err) {
