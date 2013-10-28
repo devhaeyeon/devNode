@@ -51,7 +51,7 @@ var app = connect()
     }))
 
     .use(post('/insert', function (req, res){
-					console.log(req.body);
+					console.log("form value"+req.body);
 				     db.test.insert({name: 'test2345'}, function(err,
 						docs) {
 							  if (err) {
