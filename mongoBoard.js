@@ -23,15 +23,12 @@ var app = connect()
             });
         });
     }))
-    .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
-
-
-var app2 = connect()
-	.use(get('/insert', function (req, res, next){
-      fs.readFile('Input.html', 'utf8', function (error, data) {
+    .use(get('/insert', function (req, res, next){
+      fs.readFile('input.html', 'utf8', function (error, data) {
             // 응답합니다.
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(data);
         });
     }))
-	  .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
+
+    .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
