@@ -31,7 +31,7 @@ var app = connect()
         });
     }))
 
-    .use(post('/insert', function (req, res, next){
+    .post('/insert', function (req, res, next){
 		  var body = req.body;
 
 				     db.test.insert([{name: body.name}], function(err,
