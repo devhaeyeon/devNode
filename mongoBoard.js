@@ -12,6 +12,23 @@ function get(path, cb){
     }
 }
 
+function post(path, cb){
+    return function(req, res ,next){
+     if(req.method != 'POST' ){
+	return next();
+      }else if( req.url != path){
+	var ret = compareUrl(req.url,path);
+	if(ret == "-1"){
+		return next();
+	}
+      }	
+      cb(req, res, next);
+    }
+}
+
+
+
+
 var app = connect()
     .use(get('/', function (req, res, next){
         fs.readFile('test.htm', 'utf8', function(error, data){
@@ -31,7 +48,7 @@ var app = connect()
         });
     }))
 
-    .post('/insert', function (req, res){
+    .use(post('/insert', function (req, res, next){
 		  var body = req.body;
 
 				     db.test.insert([{name: body.name}], function(err,
@@ -53,6 +70,6 @@ var app = connect()
 				// 응답합니다.
 				res.writeHead(302, { 'Location': '/' });
 				res.end();
-    })
+    }))
     .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
 
