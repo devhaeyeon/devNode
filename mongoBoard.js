@@ -25,7 +25,8 @@ function post(path, cb){
       cb(req, res, next);
     }
 }
-
+//http://uiandwe.tistory.com/837
+//http://uiandwe.tistory.com/category/web/Node.js
 
 
 
@@ -50,7 +51,8 @@ var app = connect()
     }))
 
     .use(post('/insert', function (req, res){
-				     db.test.insert({name: 'test234'}, function(err,
+					console.log(req.body);
+				     db.test.insert({name: 'test2345'}, function(err,
 						docs) {
 							  if (err) {
 								return console.error(err)
