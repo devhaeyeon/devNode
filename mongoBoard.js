@@ -17,7 +17,7 @@ function get(path, cd) {
 var app = connect()
     .use(get('/', function (req, res, next) {
         fs.readFile('input.html', 'utf8', function (error, data) {
-            db.haeyeon.find({}, { name: 1 }, function (error, cursor) {
+            db.test.find({}, { name: 1 }, function (error, cursor) {
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.end(ejs.render(data, { data: cursor }));
             });
