@@ -31,4 +31,28 @@ var app = connect()
         });
     }))
 
+    .use(post('/insert', function (req, res, next){
+		  var body = req.body;
+
+				     db.test.insert([{name: body.name}], function(err,
+						docs) {
+							  if (err) {
+								return console.error(err)
+							  }
+							  console.log('just inserted ', docs.length, ' new documents!')
+							  collection.find({}).toArray(function(err, docs) {
+								if (err) {
+								  return console.error(err)
+								}
+								docs.forEach(function(doc) {
+								  console.log('found document: ', doc)
+								})
+							  })
+							})
+
+				// 응답합니다.
+				res.writeHead(302, { 'Location': '/' });
+				res.end();
+    }))
     .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
+
