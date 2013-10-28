@@ -25,9 +25,23 @@ function post(path, cb){
       cb(req, res, next);
     }
 }
+
+
+formValues = function(data){
+    var splits = data.split('&');
+    var hash = [];
+    console.log(splits.length);
+    for (i = 0; i < splits.length; i++)
+    {
+        var iSplit = splits[i].split('=');
+        hash[iSplit[0]] = iSplit[1];
+    }
+    return hash;
+}
+
 //http://uiandwe.tistory.com/837
 //http://uiandwe.tistory.com/category/web/Node.js
-
+//http://blog.thekfactor.info/posts/an-introduction-to-node-js-and-handling-post-requests/
 
 
 var app = connect()
@@ -60,7 +74,7 @@ var app = connect()
 					 
 						if (body != '')
 						{
-							var hash = splitter.formValues(body);	
+							var hash = formValues(body);	
 							var username=hash["username"];
 						 db.test.insert({name: username}, function(err,
 						docs) {
