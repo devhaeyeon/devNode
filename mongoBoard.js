@@ -62,9 +62,7 @@ var app = connect()
 						{
 							var hash = splitter.formValues(body);	
 							var username=hash["username"];
-						}
-					});
-				     db.test.insert({name: username}, function(err,
+						 db.test.insert({name: username}, function(err,
 						docs) {
 							  if (err) {
 								return console.error(err)
@@ -79,6 +77,9 @@ var app = connect()
 								})
 							  })
 							})
+						}
+					});
+				    
 
 				// 응답합니다.
 				res.writeHead(302, { 'Location': '/' });
