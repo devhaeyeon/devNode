@@ -23,4 +23,12 @@ var app = connect()
             });
         });
     }))
+    .use(get('/insert', function (req, res, next){
+      fs.readFile('Input.html', 'utf8', function (error, data) {
+            // 응답합니다.
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            response.end(data);
+        });
+    }))
+
     .listen(port, function(){console.log("server start 127.0.0.1:"+port);});
