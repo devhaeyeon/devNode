@@ -14,7 +14,7 @@ MongoClient.connect(process.env.MONGOHQ_URL, function(err, db) {
     console.log('collection cleared!')
     // insert two documents
     console.log('inserting new documents...')
-    collection.insert([{name: 'tester'}, {name: 'coder'}], function(err,
+    collection.insert([{name: 'tester22'}, {name: 'coder222'}], function(err,
 docs) {
       if (err) {
         return console.error(err)
