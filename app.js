@@ -2,8 +2,9 @@
 var fs = require('fs');
 var connect = require('connect');
 var ejs = require('ejs');
-var db = require('mongojs').connect('board', ['test']);
+var db = require('mongojs').connect(process.env.MONGOHQ_URL, ['board']);
 var map = require('./Map.js');
+var port = process.env.PORT || 5000;
 
 // i = req.url , j = path
 function compareUrl(i, j){
@@ -153,7 +154,7 @@ var app = connect();
 		res.end();
 	});
     }));
-app.listen(8080, function () {
+app.listen(port, function () {
     console.log('server running at http://127.0.0.1:8080');
 });
 
