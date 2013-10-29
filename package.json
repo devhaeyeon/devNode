@@ -15,6 +15,7 @@
     "mongoose":"*",
      "ejs": "~0.7.1",
      "jade": "*",
+     "iconv":"*",
      "mongojs":"*"
 
   },
