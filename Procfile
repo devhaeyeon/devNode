@@ -1,1 +1,1 @@
-web: node mongoBoard.js
+web: node app.js
