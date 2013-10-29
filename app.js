@@ -138,7 +138,7 @@ var app = connect();
     app.use(post('/Edit/:id', function (req, res) {
         // 변수를 선언합니다.
         var body = req.body
-	db.test.update({"name":body.name},{$set:{"score":body.score},}, function(error, data){ // 응답합니다.
+	db.board.update({"name":body.name},{$set:{"score":body.score},}, function(error, data){ // 응답합니다.
         res.writeHead(302, { 'Location': '/' });
         res.end();});
     }));
