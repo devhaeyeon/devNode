@@ -3,11 +3,6 @@ var fs = require('fs');
 var ejs = require('ejs');
 var db = require('mongojs').connect(process.env.MONGOHQ_URL, ['haeyeon']);
 var port = process.env.PORT || 5000;
-var iconv=require('iconv').Iconv;
-var iconv = new Iconv('euc-kr', 'utf-8');
-var buffer = iconv.convert('Hello, world!');
-
-console.log(buffer);
 
 function get(path, cb){								//get 방식 데이터 처리
     return function(req, res ,next){
