@@ -4,7 +4,7 @@ var ejs = require('ejs');
 var db = require('mongojs').connect(process.env.MONGOHQ_URL, ['haeyeon']);
 var port = process.env.PORT || 5000;
 var iconv=require('iconv');
-var iconv = new Iconv('euc-kr', 'utf-8');
+var iconv = new iconv('euc-kr', 'utf-8');
 var buffer = iconv.convert('Hello, world!');
 
 console.log(buffer);
