@@ -77,7 +77,7 @@ var app = connect();
         // List.htm 파일을 읽습니다.
         fs.readFile('List.htm', 'utf8', function (error, data) {
             // 데이터베이스 쿼리를 실행합니다.
-               db.test.find({},{name:1, score:1, _id:0}, function (error, result) {
+               db.board.find({},{name:1, score:1, _id:0}, function (error, result) {
                 // 응답합니다.
                 response.writeHead(200, { 'Content-Type': 'text/html' });
                 response.end(ejs.render(data, {
@@ -107,7 +107,7 @@ var app = connect();
         // 데이터베이스 쿼리를 실행합니다.
 	var temp = {"name":body.name,"score":body.score};
 
-	db.test.save(temp, function(error, data){
+	db.board.save(temp, function(error, data){
 		 // 응답합니다.
 		res.writeHead(302, { 'Location': '/' });
 		res.end();
@@ -124,7 +124,7 @@ var app = connect();
         // Edit.htm 파일을 읽습니다.
         fs.readFile('Edit.htm', 'utf8', function (error, data) {
             // 데이터베이스 쿼리를 실행합니다.
-		db.test.find({"name":body.get("id")},{name:1, score:1, _id:0}, function (error, result) {
+		db.board.find({"name":body.get("id")},{name:1, score:1, _id:0}, function (error, result) {
 		        // 응답합니다.
 		        res.writeHead(200, { 'Content-Type': 'text/html' });
 		        res.end(ejs.render(data, {
@@ -148,7 +148,7 @@ var app = connect();
         // 데이터베이스 쿼리를 실행합니다.
 	var body = req.body;
         //console.log("delete body.get(id) : " + body.get("id"));
-	db.test.remove({"name":body.get("id")},1, function(error, data){
+	db.board.remove({"name":body.get("id")},1, function(error, data){
 		// 응답합니다.
 		res.writeHead(302, { 'Location': '/' });
 		res.end();
