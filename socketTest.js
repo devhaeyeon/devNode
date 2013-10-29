@@ -13,8 +13,8 @@ function handler (req, res) {
       return res.end('Error loading index.html');
     }
 
-    res.writeHead(200);
-    res.end(data);
+         res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
   });
 }
 
@@ -24,8 +24,8 @@ io.configure(function () {
 }); 
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+    socket.on('message', function (data) {
+        // 클라이언트의 message 이벤트를 발생시킵니다.
+        io.sockets.emit('message', data);
+    });
 });
