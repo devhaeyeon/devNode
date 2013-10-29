@@ -77,16 +77,11 @@ var app = connect()
         response.writeHead(302, { 'Location': '/' });
         response.end();
     }))
-    use(get('/modify/:id', function (request, response) {
-        // Edit.htm 파일을 읽습니다.
-        fs.readFile('edit2.html', 'utf8', function (error, data) {
-            // 데이터베이스 쿼리를 실행합니다.
-			    db.haeyeon.find({}, function (error, cursor) { 
-                res.writeHead(200, {'Content-Type':'text/html'});
-                res.end(ejs.render(data, {
-                    data : cursor
-                })); 
-            });
+    .use(get('/modify/:id', function (req, res, next){											//DB 수정 페이지
+      fs.readFile('edit2.html', 'utf8', function (error, data) {
+            // 응답합니다.
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+            res.end(data);
         });
     }))
 	.use(get('/insert', function (req, res, next){											//DB 입력 페이지
