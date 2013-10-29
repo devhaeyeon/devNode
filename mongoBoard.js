@@ -77,7 +77,7 @@ var app = connect()
         response.writeHead(302, { 'Location': '/' });
         response.end();
     }))
-    .use(get('/modify/:id', function (req, res, next){											//DB 수정 페이지
+    .use(get('/modify', function (req, res, next){											//DB 수정 페이지
       fs.readFile('edit2.html', 'utf8', function (error, data) {
             // 응답합니다.
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
