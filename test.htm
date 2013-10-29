@@ -14,7 +14,7 @@
         </tr>
         <% for (var temp  in data){%>
     <tr>
-        <td><%=data[temp].name%></td><td><a href="/modify/<%= data[temp].id %>">EDIT</a></td>
+        <td><%=data[temp].name%></td><td><a href="/modify/<%= data[temp]._id %>">EDIT</a></td>
     </tr>
     <%} %>
     </table>
