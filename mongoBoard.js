@@ -2,6 +2,7 @@ var connect = require('connect');
 var fs = require('fs');
 var ejs = require('ejs');
 var db = require('mongojs').connect(process.env.MONGOHQ_URL, ['haeyeon']);
+
 var port = process.env.PORT || 5000;
 
 function get(path, cb){								//get 방식 데이터 처리
@@ -54,7 +55,7 @@ var app = connect()
             });
         });
     }))
-    .use(get('/delete:id', function (req, res, next){										//DB 삭제
+    .use(get('/delete/:id', function (req, res, next){										//DB 삭제
         // 데이터베이스 쿼리를 실행합니다.
 		 db.haeyeon.remove({id:req.params.id},function(err, result) {
 			if (err) {
@@ -65,7 +66,7 @@ var app = connect()
         response.writeHead(302, { 'Location': '/' });
         response.end();
     }))
-	 .use(get('/modify:id', function (req, res, next){										//DB 수정
+	 .use(post('/modify/:id', function (req, res, next){										//DB 수정
         // 데이터베이스 쿼리를 실행합니다.
 		 db.haeyeon.update({name:req.body.name},function(err, result) {
 			if (err) {

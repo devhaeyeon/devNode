@@ -10,11 +10,11 @@
     <a href="/insert">사용자 추가</a>
 	<table width="100%" border="1">
         <tr>
-            <th>NAME</th>
+            <th>NAME</th><th>FUNCTION</th>
         </tr>
         <% for (var temp  in data){%>
     <tr>
-        <td><%=data[temp].name%></td>
+        <td><%=data[temp].name%></td><td><a href="/modify/<%= data[temp].id %>">EDIT</a></td>
     </tr>
     <%} %>
     </table>
