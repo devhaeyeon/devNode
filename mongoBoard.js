@@ -68,7 +68,7 @@ var app = connect()
     }))
 	 .use(post('/modify/:id', function (req, res, next){										//DB 수정
         // 데이터베이스 쿼리를 실행합니다.
-		 db.haeyeon.update({name:req.body.name},function(err, result) {
+		 db.haeyeon.update({name:'req.body.name'},function(err, result) {
 			if (err) {
 			  return console.error(err)
 			}
@@ -77,7 +77,14 @@ var app = connect()
         response.writeHead(302, { 'Location': '/' });
         response.end();
     }))
-    .use(get('/insert', function (req, res, next){											//DB 입력 페이지
+    .use(get('/modify/:id', function (req, res, next){											//DB 수정 페이지
+      fs.readFile('edit2.html', 'utf8', function (error, data) {
+            // 응답합니다.
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+            res.end(data);
+        });
+    }))
+	.use(get('/insert', function (req, res, next){											//DB 입력 페이지
       fs.readFile('input.html', 'utf8', function (error, data) {
             // 응답합니다.
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
